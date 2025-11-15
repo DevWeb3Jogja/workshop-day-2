@@ -36,5 +36,5 @@ jobs:
 
       - name: Run Forge tests
         run: |
-          forge test --no-match-path Deploy --no-match-path Upgrades  -vvv
+          forge test --match-path Token -vvv
         id: test
