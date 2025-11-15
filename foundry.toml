@@ -1,0 +1,14 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+remappings = []
+
+[rpc_endpoints]
+base-sepolia = "${BASE_SEPOLIA_RPC_URL}"
+
+[etherscan]
+base-sepolia = { key = "${ETHERSCAN_API_KEY}", url = "https://api.etherscan.io/v2/api?chainid=84532" }
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
