@@ -41,4 +41,26 @@ contract TokenTest is Test {
 
         assertEq(token.balanceOf(user), mintAmount);
     }
+
+    function testMintWhenPaused() public {
+        uint256 mintAmount = 1000;
+
+        vm.prank(owner);
+        token.pause();
+
+        vm.prank(owner);
+        vm.expectRevert();
+        token.mint(owner, mintAmount);
+
+        vm.prank(minter);
+        vm.expectRevert();
+        token.mintByMinter(user, mintAmount);
+
+        vm.prank(owner);
+        token.unpause();
+
+        vm.prank(owner);
+        token.mint(owner, mintAmount);
+        assertEq(token.balanceOf(owner), mintAmount);
+    }
 }

@@ -8,7 +8,11 @@ import {OwnableUpgradeable} from "@openzeppelin-upgradeable/contracts/access/Own
 
 contract VaultV2 is OwnableUpgradeable, UUPSUpgradeable {
     IERC20 public token;
+    // Don't DO this
+    // mapping(address => IERC20) public supportedTokens;
     mapping(address => uint256) public balances;
+    // // Do This INsteAd
+    // mapping(address => bool) public supportedTokens;
 
     event Deposit(address indexed user, uint256 amount);
     event Withdraw(address indexed user, uint256 amount);
